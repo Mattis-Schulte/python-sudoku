@@ -1,5 +1,6 @@
 import random, copy
 import numpy as np
+import time
 
 # generate a sudoku board using backtracking
 def generate_board():
@@ -14,8 +15,12 @@ def solve(board):
         return True
     else:
         row, col = find
+    
+    # random shuffle the numbers
+    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    random.shuffle(nums)
 
-    for i in range(1,10):
+    for i in nums:
         if valid(board, i, (row, col)):
             board[row][col] = i
 
@@ -58,44 +63,11 @@ def find_empty(board):
 
     return None
 
-# print the board
-def print_board(board):
-    for i in range(len(board)):
-        if i % 3 == 0 and i != 0:
-            print("- - - - - - - - - - - - ")
-
-        for j in range(len(board[0])):
-            if j % 3 == 0 and j != 0:
-                print(" | ", end="")
-
-            if j == 8:
-                print(board[i][j])
-            else:
-                print(str(board[i][j]) + " ", end="")
-
-# remove numbers from the board
-def remove_numbers(board, num):
-    while num > 0:
-        x = random.randint(0,8)
-        y = random.randint(0,8)
-
-        if board[x][y] != 0:
-            board[x][y] = 0
-            num -= 1
-
-    return board
-
 # generate a sudoku board
 def generate():
     board = generate_board()
     while not check_board(board):
         board = generate_board()
-    return board
-
-# generate a sudoku board with some numbers removed
-def generate_with_holes():
-    board = generate()
-    board = remove_numbers(board, 40)
     return board
 
 # solve the sudoku board
@@ -144,25 +116,25 @@ def check_board(board):
         return True
     return False
 
-# game loop
-def game():
-    board = generate_with_holes()
-    print_board(board)
-    print()
-    while not check_board(board):
-        x = int(input("Enter row: "))
-        y = int(input("Enter column: "))
-        num = int(input("Enter number: "))
-        if valid(board, num, (x, y)):
-            board[x][y] = num
-            print_board(board)
-            print()
-        else:
-            print("Invalid number")
-            print_board(board)
-            print()
+# print the board
+def print_board(board):
+    for i in range(len(board)):
+        if i % 3 == 0 and i != 0:
+            print("------------------------")
 
-    print("You win!")
+        for j in range(len(board[0])):
+            if j % 3 == 0 and j != 0:
+                print(" | ", end="")
+
+            if j == 8:
+                print(board[i][j])
+            else:
+                print(str(board[i][j]) + " ", end="")
 
 if __name__ == "__main__":
-    game()
+    start = time.time()
+    board = generate()
+    end = time.time()
+
+    print_board(board)
+    print(f'\nGenerated {end - start} seconds')
