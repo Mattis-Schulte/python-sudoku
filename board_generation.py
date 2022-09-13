@@ -1,6 +1,6 @@
 from random import shuffle
 import numpy as np
-from time import time
+from timeit import timeit
 
 
 class BoardFactory:
@@ -86,16 +86,8 @@ class BoardFactory:
 
 
 if __name__ == '__main__':
-    total_time = 0
-
-    # generate the board 10000 times and calculate the average time
-    for variants in range(1, 10000 + 1):
-        start = time()
-        board = BoardFactory()
-        end = time()
-        total_time += end - start
-        board.print_board()
-        print()
-
-    # printing not included
-    print(f'\nGenerated {variants} boards in {total_time} seconds, average time: {total_time / variants} seconds')
+    board = BoardFactory()
+    # board.print_board()
+    number_of_runs = 10000
+    total_time = timeit(lambda: board.generate_board(), number=number_of_runs)
+    print(f'Generated {number_of_runs} boards in {total_time} seconds, average time per board: {total_time / number_of_runs} seconds')
