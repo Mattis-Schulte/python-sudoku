@@ -9,11 +9,11 @@ class BoardFactory:
 
     # generate the board
     def generate_board(self):
-        _board = [[0 for _ in range(9)] for _ in range(9)]
+        _board = np.zeros((9, 9), dtype=int)
         self.fill_board(_board)
         return _board
 
-    # fill the board
+    # fill the board with numpy
     def fill_board(self, _board):
         find = self.find_empty(_board)
         if not find:
@@ -38,25 +38,22 @@ class BoardFactory:
     # find an empty position
     @staticmethod
     def find_empty(_board):
-        for i in range(len(_board)):
-            for j in range(len(_board[0])):
-                if _board[i][j] == 0:
-                    return i, j  # row, col
-
-        return None
+        find = np.where(_board == 0)
+        if len(find[0]) > 0:
+            return find[0][0], find[1][0]
+        else:
+            return None
 
     # check if the number is valid in the position
     @staticmethod
     def valid_entry(_board, num, pos):
         # check row
-        for i in range(len(_board[0])):
-            if _board[pos[0]][i] == num and pos[1] != i:
-                return False
+        if num in _board[pos[0]]:
+            return False
 
         # check column
-        for i in range(len(_board)):
-            if _board[i][pos[1]] == num and pos[0] != i:
-                return False
+        if num in _board[:, pos[1]]:
+            return False
 
         # check box
         box_x = pos[1] // 3
@@ -69,11 +66,11 @@ class BoardFactory:
 
         return True
 
-    # print the board
+    # print the board in a nice way using numpy
     def print_board(self):
         for i in range(len(self.board)):
             if i % 3 == 0 and i != 0:
-                print('----------------------')
+                print('------+-------+-------')
 
             for j in range(len(self.board[0])):
                 if j % 3 == 0 and j != 0:
