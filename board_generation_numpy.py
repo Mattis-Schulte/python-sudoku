@@ -13,7 +13,7 @@ class BoardFactory:
         self.fill_board(_board)
         return _board
 
-    # fill the board with numpy
+    # fill the board
     def fill_board(self, _board):
         find = self.find_empty(_board)
         if not find:
@@ -66,11 +66,11 @@ class BoardFactory:
 
         return True
 
-    # print the board in a nice way using numpy
+    # print the board
     def print_board(self):
         for i in range(len(self.board)):
             if i % 3 == 0 and i != 0:
-                print('------+-------+-------')
+                print('------+-------+------')
 
             for j in range(len(self.board[0])):
                 if j % 3 == 0 and j != 0:
@@ -85,8 +85,8 @@ class BoardFactory:
 if __name__ == '__main__':
     total_time = 0
 
-    # generate the board 1000 times and calculate the average time
-    for variants in range(1, 1000 + 1):
+    # generate the board 10000 times and calculate the average time
+    for variants in range(1, 10000 + 1):
         start = time()
         board = BoardFactory()
         end = time()

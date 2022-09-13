@@ -20,7 +20,7 @@ class BoardFactory:
             return True
         else:
             row, col = find
-
+        
         nums = list(range(1, 10))
         shuffle(nums)
 
@@ -73,7 +73,7 @@ class BoardFactory:
     def print_board(self):
         for i in range(len(self.board)):
             if i % 3 == 0 and i != 0:
-                print('----------------------')
+                print('------+-------+------')
 
             for j in range(len(self.board[0])):
                 if j % 3 == 0 and j != 0:
@@ -88,8 +88,8 @@ class BoardFactory:
 if __name__ == '__main__':
     total_time = 0
 
-    # generate the board 1000 times and calculate the average time
-    for variants in range(1, 1000 + 1):
+    # generate the board 10000 times and calculate the average time
+    for variants in range(1, 10000 + 1):
         start = time()
         board = BoardFactory()
         end = time()
@@ -97,4 +97,5 @@ if __name__ == '__main__':
         board.print_board()
         print()
 
+    # printing not included
     print(f'\nGenerated {variants} boards in {total_time} seconds, average time: {total_time / variants} seconds')
