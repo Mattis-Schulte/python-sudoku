@@ -49,23 +49,20 @@ class BoardFactory:
     @staticmethod
     def valid_entry(_board, num, pos):
         # check row
-        for i in range(len(_board[0])):
-            if _board[pos[0]][i] == num and pos[1] != i:
-                return False
+        if num in _board[pos[0]]:
+            return False
 
         # check column
         for i in range(len(_board)):
-            if _board[i][pos[1]] == num and pos[0] != i:
+            if _board[i][pos[1]] == num:
                 return False
 
         # check box
         box_x = pos[1] // 3
         box_y = pos[0] // 3
 
-        for i in range(box_y * 3, box_y * 3 + 3):
-            for j in range(box_x * 3, box_x * 3 + 3):
-                if _board[i][j] == num and (i, j) != pos:
-                    return False
+        if any(num in row[box_x * 3:box_x * 3 + 3] for row in _board[box_y * 3:box_y * 3 + 3]):
+            return False
 
         return True
 
