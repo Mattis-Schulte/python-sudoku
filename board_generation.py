@@ -1,11 +1,12 @@
-from random import shuffle
-import numpy as np
+from random import shuffle, randint
 from timeit import timeit
+from copy import deepcopy
 
 
 class BoardFactory:
     def __init__(self):
         self.board = self.generate_board()
+        # self.punctured_board = self.generate_holes(40)
 
     # generate the board
     def generate_board(self):
@@ -14,7 +15,7 @@ class BoardFactory:
         return _board
 
     # fill the board
-    def fill_board(self, _board):
+    def fill_board(self, _board):    
         find = self.find_empty(_board)
         if not find:
             return True
@@ -25,7 +26,7 @@ class BoardFactory:
         shuffle(nums)
 
         for i in nums:
-            if self.valid_entry(_board, i, (row, col)):
+            if self.validate_entry(_board, i, (row, col)):
                 _board[row][col] = i
 
                 if self.fill_board(_board):
@@ -47,7 +48,7 @@ class BoardFactory:
 
     # check if the number is valid in the position
     @staticmethod
-    def valid_entry(_board, num, pos):
+    def validate_entry(_board, num, pos):
         # check row
         if num in _board[pos[0]]:
             return False
@@ -66,25 +67,47 @@ class BoardFactory:
 
         return True
 
+    # remove random numbers
+    def generate_holes(self, holes):
+        _board = deepcopy(self.board)
+        while holes > 0:
+            x = randint(0, 8)
+            y = randint(0, 8)
+
+            if _board[y][x] != 0:
+                _board[y][x] = 0
+                holes -= 1
+
+        return _board
+
     # print the board
-    def print_board(self):
-        for i in range(len(self.board)):
+    @staticmethod
+    def print_board(_board):
+        for i in range(len(_board)):
             if i % 3 == 0 and i != 0:
                 print('------+-------+------')
 
-            for j in range(len(self.board[0])):
+            for j in range(len(_board[0])):
                 if j % 3 == 0 and j != 0:
                     print('| ', end='')
 
-                if j == 8:
-                    print(self.board[i][j])
+                if _board[i][j] == 0:
+                    output_value = ' '
                 else:
-                    print(str(self.board[i][j]) + ' ', end='')
+                    output_value = _board[i][j]
 
+                if j == 8:
+                    print(output_value)
+                else:
+                    print(f'{output_value} ', end='')
 
 if __name__ == '__main__':
     board = BoardFactory()
-    # board.print_board()
+    board.print_board(board.board)
+    # print()
+    # board.print_board(board.punctured_board)
+
     number_of_runs = 10000
-    total_time = timeit(lambda: board.generate_board(), number=number_of_runs)
-    print(f'Generated {number_of_runs} boards in {total_time} seconds, average time per board: {total_time / number_of_runs} seconds')
+    total_time = timeit(lambda: BoardFactory(), number=number_of_runs)
+    print(f'\nGenerated {number_of_runs} boards in {total_time} seconds, average time per board: {total_time / number_of_runs} seconds')
+    

@@ -87,4 +87,4 @@ if __name__ == "__main__":
 
     number_of_runs = 10000
     total_time = timeit(lambda: BoardFactory(), number=number_of_runs)
-    print(f'Generated {number_of_runs} boards in {total_time} seconds, average time per board: {total_time / number_of_runs} seconds')
+    print(f'\nGenerated {number_of_runs} boards in {total_time} seconds, average time per board: {total_time / number_of_runs} seconds')
