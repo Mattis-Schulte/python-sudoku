@@ -1,5 +1,4 @@
-from random import shuffle, randint
-from timeit import timeit
+from random import shuffle
 from copy import deepcopy
 
 
@@ -32,7 +31,7 @@ class SudokuBoard:
                 if self.fill_board(_board):
                     return True
 
-                # next cell is impossible to fill, backtrack
+                # if the next cell is impossible to fill, backtrack
                 _board[row][col] = 0
 
         return False
@@ -69,7 +68,7 @@ class SudokuBoard:
         return True
 
     # remove random numbers
-    def generate_holes(self, holes):
+    def puncture_board(self, holes):
         _board = deepcopy(self.board)
         positions = list(range(81))
         shuffle(positions)

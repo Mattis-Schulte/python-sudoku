@@ -1,4 +1,4 @@
-from random import shuffle, randint
+from random import shuffle
 from timeit import timeit
 from copy import deepcopy
 
@@ -6,7 +6,7 @@ from copy import deepcopy
 class SudokuBoard:
     def __init__(self):
         self.board = self.generate_board()
-        self.punctured_board = self.generate_holes(40)
+        self.punctured_board = self.puncture_board(40)
 
     # generate the board
     def generate_board(self):
@@ -70,7 +70,7 @@ class SudokuBoard:
         return True
 
     # remove random numbers
-    def generate_holes(self, holes):
+    def puncture_board(self, holes):
         _board = deepcopy(self.board)
         positions = list(range(81))
         shuffle(positions)
