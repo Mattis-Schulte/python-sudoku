@@ -72,8 +72,8 @@ class SudokuGame(SudokuBoard):
                         if self.board == self.solution:
                             system('cls' if name == 'nt' else 'clear')
                             self.print_board(self.board)
-                            print(
-                                f'\nYou won with {number_of_mistakes} mistakes in {round(time() - start_time) // 60}:{str(round(time() - start_time) % 60).zfill(2)} minutes.')
+                            print('\nCongratulations! You solved the board!')
+                            print(f'Mistakes: {number_of_mistakes}, Time: {round(time() - start_time) // 60}:{str(round(time() - start_time) % 60).zfill(2)}')
                             break
                     else:
                         number_of_mistakes += 1
@@ -87,7 +87,7 @@ class SudokuGame(SudokuBoard):
 if __name__ == '__main__':
     system('cls' if name == 'nt' else 'clear')
     # difficulty settings
-    difficulty_levels = {'1': 25, '2': 35, '3': 45}
+    difficulty_levels = {'1': 1, '2': 35, '3': 45}
 
     # difficulty level menu
     print('''
