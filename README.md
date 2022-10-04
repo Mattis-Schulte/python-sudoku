@@ -1,8 +1,8 @@
 # Sudoku (Backtracking-Algorithmus)
 ## Gruppenmitglieder
 - Enno Rockmann: Algorithmus, Qualitätskontrolle, Dokumentation
-- Sajan Sivapatham: UI-Design, Spiel-Design, Dokumentation
-- Mattis Schulte: Software, Projektleiter, Dokumentation
+- Sajan Sivapatham: UI-Design/-Programmierung, Spiel-Design, Dokumentation
+- Mattis Schulte: Programmierung, Projektleiter, Dokumentation
 
 ## Zeitplanung
 - 13.09.2022: Grundstruktur und erste Ideen
@@ -15,7 +15,7 @@
 
 
 ## Aufgabenbeschreibung
-Es soll ein Algorithmus in Python objektorientiert programmiert werden. Es müssen mindestens die Klassen SudokuBoard und SudokuGame existieren. Ein SudokuBoard „straight forward“ aufzubauen dauert sehr lange, deshalb wird dies zum Beispiel über ein Backtracking-Algorithmus gelöst.  
+Es soll ein Algorithmus in Python objektorientiert programmiert werden. Es müssen mindestens die Klassen SudokuBoard und SudokuGame existieren. Ein Sudoku-Board „straight forward“ aufzubauen dauert sehr lange, deshalb wird dies zum Beispiel über ein Backtracking-Algorithmus gelöst.  
   
 **Backtracking**
 > Ein Verfahren, das darauf beruht eine oder mehrere Schritte zurückzugehen falls keine Lösung gefunden wird. Es kann zu einer oder auch keiner Lösung führen und u. U. auch sehr lange Laufzeiten haben.
@@ -34,8 +34,9 @@ Es soll ein Algorithmus in Python objektorientiert programmiert werden. Es müss
 
 ## Beschreibung der Lösung (Mattis / Sajan)
 
-### Algorithmus:
-#### Rekursionsbasierten Backtracking-Algorithmus (2 ms):
+### Algorithmen:
+Zum generieren des Sudoku-Boards haben wir uns verschiendene Algorithmen ausgedacht
+#### Rekursionsbasierter Backtracking-Algorithmus (2 ms):
 #### Vertauschen eines schon fertigen Board (0,2 ms):
 #### Vertauschen eines einzigen 3x3 Quadrat bzw. Zeile (0,008 ms):
 
