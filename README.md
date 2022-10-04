@@ -16,6 +16,7 @@
 ## Aufgabenbeschreibung (Sajan)
 
 ## Klassenentwurf (Enno)
+![image](https://user-images.githubusercontent.com/34488470/193804002-c1f8f259-8450-4aad-8469-13a711958334.png)
 
 ## Beschreibung der Lösung (Mattis)
 - Rekursionsbasierten Backtracking-Algorithmus
