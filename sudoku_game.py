@@ -87,7 +87,7 @@ class SudokuGame(SudokuBoard):
 if __name__ == '__main__':
     system('cls' if name == 'nt' else 'clear')
     # difficulty settings
-    difficulty_levels = {'1': 1, '2': 35, '3': 45}
+    difficulty_levels = {'1': 25, '2': 35, '3': 45}
 
     # difficulty level menu
     print('''

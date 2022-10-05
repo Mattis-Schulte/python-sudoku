@@ -2,7 +2,7 @@ from random import shuffle
 from timeit import timeit
 
 
-class BoardFactory:
+class BoardFactorySimple:
     def __init__(self):
         self.board = self.generate_board()
 
@@ -40,9 +40,9 @@ class BoardFactory:
 
 
 if __name__ == '__main__':
-    board = BoardFactory()
+    board = BoardFactorySimple()
     board.print_board(board.board)
 
     number_of_runs = 1000000
-    total_time = timeit(lambda: BoardFactory(), number=number_of_runs)
+    total_time = timeit(lambda: BoardFactorySimple(), number=number_of_runs)
     print(f'\nGenerated {number_of_runs} boards in {total_time} seconds, average time per board: {total_time / number_of_runs} seconds')

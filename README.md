@@ -35,8 +35,9 @@ Es soll ein Algorithmus in Python objektorientiert programmiert werden. Es müss
 ## Beschreibung der Lösung (Mattis / Sajan)
 
 ### Algorithmen:
-Zum generieren des Sudoku-Boards haben wir uns verschiendene Algorithmen ausgedacht
+Zum Generieren des Sudoku-Boards haben wir uns verschiedene Algorithmen ausgedacht, welche Unterschiedliche Vor- und Nachteile haben. Diese haben wir dann man einer Lösung aus dem Internet verglichen, um einen besseren Eindruck unseres Algorithmus gewinnen zu können. Dabei haben wir für die folgenden Algorithmen diese Laufzeiten gemessen:
 #### Rekursionsbasierter Backtracking-Algorithmus (2 ms):
+Dieser Backtracking-Algorithmus war der unser erster Algorithmus und zudem auch der Algorithmus, für den wir uns schließlich entschieden haben. Gründe dafür sind die mehr als akzeptable Laufzeit, ein vergleichsweise leicht verständlicher Code und die Möglichkeit, alle verschiedene Sudoku-Boards zu generieren.
 #### Vertauschen eines schon fertigen Board (0,2 ms):
 #### Vertauschen eines einzigen 3x3 Quadrat bzw. Zeile (0,008 ms):
 
