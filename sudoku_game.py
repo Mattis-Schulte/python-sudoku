@@ -77,6 +77,7 @@ class SudokuGame(SudokuBoard):
                             break
                     else:
                         number_of_mistakes += 1
+                        invalid_input = True
                 else:
                     invalid_input = True
             except (ValueError, IndexError):
