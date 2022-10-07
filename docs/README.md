@@ -30,7 +30,7 @@ Es soll ein Algorithmus in Python objektorientiert programmiert werden. Es müss
   - Fazit und Selbstreflexion
 
 ## Klassenentwurf (Enno)
-![Sudoku-Class-Diagram](https://user-images.githubusercontent.com/34488470/193805187-9c35b630-6bbd-4495-95b5-87ee95e17432.png)
+![sudoku-class-diagram](https://user-images.githubusercontent.com/34488470/194537294-2684d0b8-f181-48a1-b947-bbcd16a2e7e1.svg)
 
 ## Beschreibung der Lösung (Mattis / Sajan)
 
