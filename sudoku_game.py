@@ -63,8 +63,9 @@ class SudokuGame(SudokuBoard):
                 row = self.identifier.index(str(user_input[0][0]).upper())
                 column = int(user_input[0][1]) - 1
 
-                # check if the input is correct
+                # check if the input is valid
                 if self.board[row][column] == 0:
+                    # check if the input is correct
                     if self.solution[row][column] == int(user_input[1]):
                         self.board[row][column] = int(user_input[1])
                         invalid_input = False
@@ -73,7 +74,8 @@ class SudokuGame(SudokuBoard):
                             system('cls' if name == 'nt' else 'clear')
                             self.print_board(self.board)
                             print('\nCongratulations! You solved the board!')
-                            print(f'Mistakes: {number_of_mistakes}, Time: {round(time() - start_time) // 60}:{str(round(time() - start_time) % 60).zfill(2)}')
+                            elapsed_time = round(time() - start_time)
+                            print(f'Mistakes: {number_of_mistakes}, Time: {elapsed_time // 60}:{str(elapsed_time % 60).zfill(2)}')
                             break
                     else:
                         number_of_mistakes += 1
@@ -81,7 +83,6 @@ class SudokuGame(SudokuBoard):
                 else:
                     invalid_input = True
             except (ValueError, IndexError):
-                # input error
                 invalid_input = True
 
 

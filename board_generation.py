@@ -5,6 +5,7 @@ from copy import deepcopy
 class SudokuBoard:
     def __init__(self):
         self.board = self.generate_board()
+        self.punctured_board = self.puncture_board(40)
 
     # generate the board
     def generate_board(self):
@@ -13,38 +14,29 @@ class SudokuBoard:
         return _board
 
     # fill the board
-    def fill_board(self, _board):    
-        find = self.find_empty(_board)
-        if not find:
-            return True
-        else:
-            row, col = find
-        
+    def fill_board(self, _board, selected_cell=0):   
         nums = list(range(1, 10))
         shuffle(nums)
 
+        # check if the board is already complete
+        if selected_cell == 81:
+            return True
+
         for i in nums:
-            if self.validate_entry(_board, i, (row, col)):
-                _board[row][col] = i
+            selected_row = selected_cell // 9
+            selected_col = selected_cell % 9
+
+            if self.validate_entry(_board, i, (selected_row, selected_col)):
+                _board[selected_row][selected_col] = i
 
                 # fill the next empty cell recursively
-                if self.fill_board(_board):
+                if self.fill_board(_board, selected_cell + 1):
                     return True
 
-                # if the next cell is impossible to fill, backtrack
-                _board[row][col] = 0
+                # next cell is impossible to fill, backtrack
+                _board[selected_row][selected_col] = 0
 
         return False
-
-    # find an empty position
-    @staticmethod
-    def find_empty(_board):
-        for i in range(len(_board)):
-            for j in range(len(_board[0])):
-                if _board[i][j] == 0:
-                    return i, j  # row, col
-
-        return None
 
     # check if the number is valid in the position
     @staticmethod

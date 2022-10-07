@@ -6,7 +6,7 @@ from copy import deepcopy
 class SudokuBoard:
     def __init__(self):
         self.board = self.generate_board()
-        self.punctured_board = self.puncture_board(40)
+        # self.punctured_board = self.puncture_board(40)
 
     # generate the board
     def generate_board(self):
@@ -15,38 +15,29 @@ class SudokuBoard:
         return _board
 
     # fill the board
-    def fill_board(self, _board):    
-        find = self.find_empty(_board)
-        if not find:
-            return True
-        else:
-            row, col = find
-        
+    def fill_board(self, _board, selected_cell=0):   
         nums = list(range(1, 10))
         shuffle(nums)
 
+        # check if the board is already complete
+        if selected_cell == 81:
+            return True
+
         for i in nums:
-            if self.validate_entry(_board, i, (row, col)):
-                _board[row][col] = i
+            selected_row = selected_cell // 9
+            selected_col = selected_cell % 9
+
+            if self.validate_entry(_board, i, (selected_row, selected_col)):
+                _board[selected_row][selected_col] = i
 
                 # fill the next empty cell recursively
-                if self.fill_board(_board):
+                if self.fill_board(_board, selected_cell + 1):
                     return True
 
                 # next cell is impossible to fill, backtrack
-                _board[row][col] = 0
+                _board[selected_row][selected_col] = 0
 
         return False
-
-    # find an empty position
-    @staticmethod
-    def find_empty(_board):
-        for i in range(len(_board)):
-            for j in range(len(_board[0])):
-                if _board[i][j] == 0:
-                    return i, j  # row, col
-
-        return None
 
     # check if the number is valid in the position
     @staticmethod
@@ -83,7 +74,8 @@ class SudokuBoard:
         return _board
 
     # print the board
-    def print_board(self, _board):
+    @staticmethod
+    def print_board( _board):
         identifier = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I')
         # print the column identifier
         print('\033[34m  1 2 3   4 5 6   7 8 9\033[0m')
@@ -109,11 +101,12 @@ class SudokuBoard:
             if i % 3 == 2 and i != 8:
                 print('  ------+-------+------')
 
+
 if __name__ == '__main__':
     board = SudokuBoard()
     board.print_board(board.board)
-    print()
-    board.print_board(board.punctured_board)
+    # print()
+    # board.print_board(board.punctured_board)
 
     number_of_runs = 10000
     total_time = timeit(lambda: SudokuBoard(), number=number_of_runs)
