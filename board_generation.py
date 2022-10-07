@@ -33,7 +33,7 @@ class SudokuBoard:
                 if self.fill_board(_board, selected_cell + 1):
                     return True
 
-                # next cell is impossible to fill, backtrack
+                # if the next cell is impossible to fill, backtrack
                 _board[selected_row][selected_col] = 0
 
         return False
