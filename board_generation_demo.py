@@ -15,7 +15,7 @@ class SudokuBoard:
         return _board
 
     # fill the board
-    def fill_board(self, _board, selected_cell=0):   
+    def fill_board(self, _board, selected_cell=0):
         nums = list(range(1, 10))
         shuffle(nums)
 
@@ -39,7 +39,7 @@ class SudokuBoard:
 
         return False
 
-    # check if the number is valid in the position
+   # check if the number is valid in this position
     @staticmethod
     def validate_entry(_board, num, pos):
         # check row
