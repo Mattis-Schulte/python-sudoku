@@ -77,7 +77,7 @@ class BoardFactoryExample:
 
     # print the board
     @staticmethod
-    def print_board(_board):
+    def print_board(_board: list):
         identifier = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I')
         # print the column identifier
         print('\033[34m  1 2 3   4 5 6   7 8 9\033[0m')
