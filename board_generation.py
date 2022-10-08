@@ -8,13 +8,13 @@ class SudokuBoard:
         self.punctured_board = self.puncture_board(40)
 
     # generate the board
-    def generate_board(self):
+    def generate_board(self) -> list:
         _board = [[0 for _ in range(9)] for _ in range(9)]
         self.fill_board(_board)
         return _board
 
     # fill the board
-    def fill_board(self, _board, selected_cell=0):   
+    def fill_board(self, _board: list, selected_cell: int=0) -> bool:   
         nums = list(range(1, 10))
         shuffle(nums)
 
@@ -40,7 +40,7 @@ class SudokuBoard:
 
     # check if the number is valid in this position
     @staticmethod
-    def validate_entry(_board, num, pos):
+    def validate_entry(_board: list, num: int, pos: tuple) -> bool:
         # check row
         if num in _board[pos[0]]:
             return False
@@ -60,7 +60,7 @@ class SudokuBoard:
         return True
 
     # remove random numbers
-    def puncture_board(self, holes):
+    def puncture_board(self, holes: int) -> list:
         _board = deepcopy(self.board)
         positions = list(range(81))
         shuffle(positions)

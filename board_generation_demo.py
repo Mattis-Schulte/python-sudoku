@@ -9,13 +9,13 @@ class SudokuBoard:
         # self.punctured_board = self.puncture_board(40)
 
     # generate the board
-    def generate_board(self):
+    def generate_board(self) -> list:
         _board = [[0 for _ in range(9)] for _ in range(9)]
         self.fill_board(_board)
         return _board
 
     # fill the board
-    def fill_board(self, _board, selected_cell=0):
+    def fill_board(self, _board: list, selected_cell: int=0) -> bool:
         nums = list(range(1, 10))
         shuffle(nums)
 
@@ -39,9 +39,9 @@ class SudokuBoard:
 
         return False
 
-   # check if the number is valid in this position
+    # check if the number is valid in this position
     @staticmethod
-    def validate_entry(_board, num, pos):
+    def validate_entry(_board: list, num: int, pos: tuple) -> bool:
         # check row
         if num in _board[pos[0]]:
             return False
@@ -61,7 +61,7 @@ class SudokuBoard:
         return True
 
     # remove random numbers
-    def puncture_board(self, holes):
+    def puncture_board(self, holes: int) -> list:
         _board = deepcopy(self.board)
         positions = list(range(81))
         shuffle(positions)
@@ -75,7 +75,7 @@ class SudokuBoard:
 
     # print the board
     @staticmethod
-    def print_board( _board):
+    def print_board(_board: list):
         identifier = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I')
         # print the column identifier
         print('\033[34m  1 2 3   4 5 6   7 8 9\033[0m')

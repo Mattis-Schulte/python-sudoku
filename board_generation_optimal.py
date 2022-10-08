@@ -63,7 +63,7 @@ class BoardFactoryExample:
         self.shuffle_3x3_cols()
     
     # remove random numbers
-    def puncture_board(self, holes):
+    def puncture_board(self, holes: int) -> list:
         _board = deepcopy(self.board)
         positions = list(range(81))
         shuffle(positions)

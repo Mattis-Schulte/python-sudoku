@@ -10,7 +10,7 @@ class BoardFactorySimple:
 
     # generate the board
     @staticmethod
-    def generate_board():
+    def generate_board() -> list:
         base_grid = list(range(1, 10))
         shuffle(base_grid)
 
@@ -22,7 +22,7 @@ class BoardFactorySimple:
         return _board
 
     # remove random numbers
-    def puncture_board(self, holes):
+    def puncture_board(self, holes: int) -> list:
         _board = deepcopy(self.board)
         positions = list(range(81))
         shuffle(positions)
