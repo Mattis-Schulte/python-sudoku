@@ -1,3 +1,8 @@
+"""
+Simple demo of our backtracking algorithm
+Runtime for a single board: 1.3 milliseconds (measured on GitHub Codespaces)
+"""
+
 from random import shuffle
 from timeit import timeit
 from copy import deepcopy
@@ -16,12 +21,12 @@ class SudokuBoard:
 
     # fill the board
     def fill_board(self, _board: list, selected_cell: int=0) -> bool:
-        nums = list(range(1, 10))
-        shuffle(nums)
-
         # check if the board is already complete
         if selected_cell == 81:
             return True
+
+        nums = list(range(1, 10))
+        shuffle(nums)
 
         for i in nums:
             selected_row = selected_cell // 9

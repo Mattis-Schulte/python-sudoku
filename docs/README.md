@@ -39,23 +39,26 @@ Zum Generieren des Sudoku-Boards haben wir uns verschiedene Lösungsansätze üb
 - **Mathematisch** (wie zum Beispiel durch die Verwendung von [Konvolution](https://de.wikipedia.org/wiki/Faltung_(Mathematik)), was wir nicht näher verfolgt haben, aber eventuelle möglich ist)
 - **Backtracking** (entweder rekursionsbasiert oder nicht-rekursionsbasiert)
 - **Vertauschen** (entweder durch das Vertauschen einer einzelnen Zeile, Spalte, 3x3 Abschnitt oder durch das Vertauschen eines kompletten Boards)  
-#### Rekursionsbasierter Backtracking-Algorithmus (1,3 ms):
+
+**Rekursionsbasierter Backtracking-Algorithmus (1,3 ms):**  
 Diese Art von Lösung war, nachdem mathematischen Ansatz die Zweite, die uns in den Sinn kam und die Erste, die wir dann auch tatsächlich ausprogrammiert haben. Sie ist rekursionsbasiert und füllt ein Feld nach dem anderen auf, wodurch wir uns eine sehr gute Performance und gute Lesbarkeit versprochen haben. Dies hat sich auch in der Realität bewahrheitet, auch wenn die Verwendung von Rekursion zugunsten der Performance einiges an Lesbarkeit kostet. 
 
 Jedoch haben wir später festgestellt, dass es noch andere Lösungsansätze gibt, die weitaus performanter und lesbarer sind. Allerdings haben wir uns aufgrund der Zuverlässigkeit und Möglichkeit, alle möglichen Sudoku-Boards zu generieren sowie der immer noch mehr als akzeptabler Performance und Lesbarkeit dazu entschieden, diese Lösung weiterhin zu verwenden.
 
-#### Vertauschen eines schon fertigen Board (0,2 ms):
+**Vertauschen eines schon fertigen Board (0,2 ms):**  
 Unser nächster Lösungsansatz war das Vertauschen von Zeilen, Spalten und 3x3 Quadraten eines schon hinterlegten Boards. Da durch würde jegliche Form von Überprüfung unnötig und auch Zufall sollte keinerlei Rolle mehr in der Laufzeit spielt, womit eine lineare Zeitkomplexität erreicht werden würde. 
 
 Nach etwas Suchen im Internet haben wir dann [diese Lösung](https://stackoverflow.com/a/61442050/12278623) gefunden und den Code von Java in Python übersetzt, um ihn mit unserer Backtracking-Lösung zu vergleichen (wie genau der Code funktioniert ist auch in dem StackOverflow-Post beschrieben). Das Ergebnis hat uns tatsächlich etwas überrascht, da wir einen größeren Performance-Unterschied erwartet haben. Bei weiterer Überlegung macht das Ergebnis aber mehr Sinn und bestätigt uns nur in der Annahme, das unser Backtracking-Algorithmus sehr gut ist. Der Nachteil dieser Lösung ist, dass der Code nur schwer verständlich ist.
 
-#### Vertauschen eines einzigen 3x3 Quadrat bzw. Zeile (0,008 ms):
+**Vertauschen eines einzigen 3x3 Quadrat bzw. Zeile (0,008 ms):**  
+> Unsere tatsächliche Lösung weicht hiervon leicht ab, folgt dabei aber weiterhin denselbem Prinzip.  
+
 Eine Weitere Lösungsmöglichkeit die uns eingefallen ist, ist ein einziges 3x3 Quadrat wie unten in der Abbildung zu vertauschen. Unser Ziel dabei war es, die Lösung mit der kürzesten Laufzeit und der geringsten Länge an Code zu finden, ohne dabei auf andere Dinge Rücksicht zu nehmen. Was wir unserer Meinung nach auch erreicht haben. Hierbei entsteht jedoch der Nachteil, das deutliche Muster zu erkennen sind. Des Weiteren ist die Anzahl der verschiedenen Sudoku-Boards die mit dieser Methode erstellt werden können, auf ```9!``` (362880) begrenzt.
 
 ![sudoku-permutation-2](https://user-images.githubusercontent.com/34488470/194714718-c8806d87-225f-4e02-8502-6066fabe5022.png)
 
 ### Ausgabe und Spieldesign:
-#### Terminal:
+**Terminal:**  
 ```
   1 2 3   4 5 6   7 8 9
 A   2   |   3   | 8 7 9
@@ -70,7 +73,8 @@ G 2 1 6 | 4 7   |   9
 H     8 |       |   4  
 I     4 |     3 |   1  
 ```
-#### Grafische Benutzeroberfläche:
+**Grafische Benutzeroberfläche:**  
+
 
 ## Besonderheiten
 

@@ -1,3 +1,8 @@
+"""
+Simple demo of an even simpler and faster permutation algorithm
+Runtime for a single board: 0.008 milliseconds (measured on GitHub Codespaces)
+"""
+
 from random import shuffle
 from timeit import timeit
 from copy import deepcopy

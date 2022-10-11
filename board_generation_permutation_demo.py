@@ -1,4 +1,8 @@
-# Source: https://stackoverflow.com/a/61442050/12278623
+"""
+Simple demo of a permutation algorithm
+Runtime for a single board: 0.2 milliseconds (measured on GitHub Codespaces)
+Source: https://stackoverflow.com/a/61442050/12278623
+"""
 
 from random import randint, shuffle
 from timeit import timeit
