@@ -50,6 +50,8 @@ Unser nächster Lösungsansatz war das Vertauschen von Zeilen, Spalten und 3x3 Q
 Nach etwas Suchen im Internet haben wir dann [diese Lösung](https://stackoverflow.com/a/61442050/12278623) gefunden und den Code von Java in Python übersetzt, um ihn mit unserer Backtracking-Lösung zu vergleichen (wie genau der Code funktioniert ist auch in dem StackOverflow-Post beschrieben). Das Ergebnis hat uns tatsächlich etwas überrascht, da wir einen größeren Performance-Unterschied erwartet haben. Bei weiterer Überlegung macht das Ergebnis aber mehr Sinn und bestätigt uns nur in der Annahme, das unser Backtracking-Algorithmus sehr gut ist. Der Nachteil dieser Lösung ist, dass der Code nur schwer verständlich ist.
 
 #### Vertauschen eines einzigen 3x3 Quadrat bzw. Zeile (0,008 ms):
+Die letzte Lösungsmöglichkeit die uns eingefallen ist ein einziges 3x3 Quadrat wie unten in der Abildung zu vertauschen. Unser Ziel dabei war es, die Lösung mit der kürzesten Laufzeit und der geringsten Zeilenzahl zu finden, ohne auf hierbei andere Dinge Rücksicht zu nehmen. Was wir unserer Meinung nach erreicht haben. Dabei entsteht jedoch der Nachteil das deutliche Muster zu erkennen sind, des Weiteren ist die Anzahl der verschiedenen Sudoku-Boards die mit dieser Methode erstellt werden können auf 9! (362880) begrenzt.  
+
 ![sudoku-permutation-2](https://user-images.githubusercontent.com/34488470/194714718-c8806d87-225f-4e02-8502-6066fabe5022.png)
 
 ### Ausgabe und Spieldesign:
