@@ -58,6 +58,13 @@ Eine Weitere Lösungsmöglichkeit die uns eingefallen ist, ist ein einziges 3x3 
 ![sudoku-permutation-2](https://user-images.githubusercontent.com/34488470/194714718-c8806d87-225f-4e02-8502-6066fabe5022.png)
 
 ### Ausgabe und Spieldesign:
+Bei der Ausgabe haben wir uns zunächst auf ein Spiel in der Konsolenebene geeinigt und dies implementiert. Später wollten wir dann aus Gründen der Übersichtlichkeit und Benutzererfahrung stattdessen eine GUI verwenden. Für das Spieldesign wollten wir das Spiel so unkompliziert wie möglich gestalten, daher lassen wir den User beispielsweise keine falschen Zahlen eingeben, sondern weisen ihn sofort auf seinen Fehler hin.
+
+Bei den Schwierigkeitsstufen haben wir uns auf folgende drei geeinigt:
+- Einfach (56 Felder)
+- Mittel (46 Felder)
+- Schwierig (36 Felder)
+
 **Terminal:**  
 ```
   1 2 3   4 5 6   7 8 9
@@ -77,5 +84,8 @@ I     4 |     3 |   1
 
 
 ## Besonderheiten
-
+- Sehr schnell
+- Mehrere Lösungsansätzte
+- Simpler Code
 ## Fazit und Selbstreflexion
+Das Projekt war sehr interessant und hat viel Spaß gemacht, da wir selbst Sudoku spielen. Der Basiscode stand sehr schnell, daher haben wir die meißte Zeit daran gearbeitet, ihn zu verbessern. Dadurch haben wir es geschafft, sehr schnelle, sehr gute Sudoku-Bretter erstellen zu können, weshalb wir mit dem Ergebnis zufrieden sind. Die GUI (ist nicht fertig geworden, da wir uns zu sehr auf den Code konzentriert haben und zu spät die Aufgaben aufgeteilt haben / ist gut gelungen und bereitet dem Nutzer ein gutes Spiel-Erlebnis.) Am Anfang haben wir alles zusammen bearbeitet, was dazu geführt hat, dass meist nur 1-2 Personen aktiv am Code gearbeitet haben. Deshalb haben wir uns aufgeteilt, haben die Dokumentation, die GUI und den Algorithmus untereinander aufgeteilt, wodurch am Ende jeder eine Aufgabe hat. 
