@@ -6,7 +6,7 @@ Source: https://stackoverflow.com/a/61442050/12278623
 
 from random import randint, shuffle
 from timeit import timeit
-from copy import deepcopy
+# from copy import deepcopy
 
 
 class BoardFactoryExample:
@@ -15,7 +15,7 @@ class BoardFactoryExample:
                       [2, 3, 1, 5, 6, 4, 8, 9, 7], [5, 6, 4, 8, 9, 7, 2, 3, 1], [8, 9, 7, 2, 3, 1, 5, 6, 4],
                       [3, 1, 2, 6, 4, 5, 9, 7, 8], [6, 4, 5, 9, 7, 8, 3, 1, 2], [9, 7, 8, 3, 1, 2, 6, 4, 5]]
         self.generate_board()
-        # self.punctured_board = self.puncture_board(40)
+        # self.punctured_board = self.puncture_board(deepcopy(self.board), 40)
 
     def swap_numbers(self, n1: int, n2: int):
         for i in range(9):
@@ -67,8 +67,8 @@ class BoardFactoryExample:
         self.shuffle_3x3_cols()
     
     # remove random numbers
-    def puncture_board(self, holes: int) -> list:
-        _board = deepcopy(self.board)
+    @staticmethod
+    def puncture_board(_board, holes: int) -> list:
         positions = list(range(81))
         shuffle(positions)
 

@@ -5,7 +5,6 @@ from copy import deepcopy
 class SudokuBoard:
     def __init__(self):
         self.board = self.generate_board()
-        self.punctured_board = self.puncture_board(40)
 
     # generate the board
     def generate_board(self) -> list:
@@ -60,8 +59,8 @@ class SudokuBoard:
         return True
 
     # remove random numbers
-    def puncture_board(self, holes: int) -> list:
-        _board = deepcopy(self.board)
+    @staticmethod
+    def puncture_board(_board, holes: int) -> list:
         positions = list(range(81))
         shuffle(positions)
 
