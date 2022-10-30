@@ -83,9 +83,9 @@ I     4 |     3 |   1
 **Grafische Benutzeroberfläche:**  
 
 ## Besonderheiten
-- Sehr schnell
+- Kurze Laufzeit
 - Simpler Code
 - Mehrere Lösungsansätze
 
 ## Fazit und Selbstreflexion
-Das Projekt war sehr interessant und hat viel Spaß gemacht, da wir selbst Sudoku spielen. Der Basiscode stand sehr schnell, daher haben wir die meiste Zeit daran gearbeitet, ihn zu verbessern. Dadurch haben wir es geschafft, sehr schnelle und sehr gute Sudoku-Boards erstellen zu können, weshalb wir mit dem Ergebnis zufrieden sind. Die GUI (ist nicht fertig geworden, da wir uns zu sehr auf den Code konzentriert haben und zu spät die Aufgaben aufgeteilt haben / ist gut gelungen und bereitet dem Nutzer ein gutes Spiel-Erlebnis). Am Anfang haben wir alles zusammen bearbeitet, was dazu geführt hat, dass meist nur 1-2 Personen aktiv am Code gearbeitet haben. Deshalb haben wir uns aufgeteilt, haben die Dokumentation, die GUI und den Algorithmus untereinander aufgeteilt, wodurch am Ende jeder eine Aufgabe hat. 
+Das Projekt war interessant und hat viel Spaß gemacht, da wir auch privat Sudoku spielen. Der Basiscode stand sehr schnell, daher haben wir die meiste Zeit daran gearbeitet, ihn zu verbessern. Dadurch haben wir es geschafft, sehr schnell sehr gute Sudoku-Boards erstellen zu können, weshalb wir mit dem Ergebnis auch zufrieden sind. Die GUI ist leider nicht fertig geworden, da wir uns zu sehr auf den Algorithmus konzentriert haben und zu spät die Aufgaben aufgeteilt haben. Am Anfang haben wir alles gemeinsam bearbeitet, was dazu führte, dass meistens nur 1-2 Leute aktiv am Code gearbeitet haben. Weshalb wir später die Dokumentation, die GUI, den Algorithmus und sonstiges untereinander aufgeteilt haben, damit am Ende jeder eine Aufgabe hat.
