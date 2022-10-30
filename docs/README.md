@@ -81,6 +81,7 @@ H     8 |       |   4
 I     4 |     3 |   1  
 ```
 **Grafische Benutzeroberfläche:**  
+Leider nicht fertig geworden...
 
 ## Besonderheiten
 - Kurze Laufzeit
